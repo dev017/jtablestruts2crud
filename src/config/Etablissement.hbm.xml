@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+		<class name="structure.Etablissement" table="Etablissement1" >
+		<id name="id_etablissement" type="int" column="id_etablissement">
+			<generator class="increment" />
+		</id>
+		<property name="nom" type="string" column="nom" />
+		<property name="tel" type="string" column="tel" />
+		<property name="fax" type="string" column="fax" />
+		<property name="adresse" type="string" column="adresse" />
+		<property name="raison_social" type="string" column="raison_social" />
+	</class>
+</hibernate-mapping>

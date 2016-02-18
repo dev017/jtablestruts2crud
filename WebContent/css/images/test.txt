@@ -1,0 +1,37 @@
+test reussi 
+
+
+6
+Architecture 2 – tiers
+? Architecture 2 – tiers
+? Client / serveur de base, avec 2 éléments
+? Client : présentation, interface utilisateur
+? Serveur : partie persistance, gestion physique des données
+? Les services métier / la partie applicative peuvent être
+? Soit entièrement coté client, intégrés avec la présentation
+? La partie serveur ne gère que les données
+? Ex : traitement de texte avec serveur de fichiers distants
+? Ex : application accèdant à une BDD distante
+? Soit entièrement coté serveur
+? La partie client ne gére que l'interface utilisateur
+? L'interface utilisateur peut même être exécutée sur le serveur
+? Fonctionnement mode terminal / mainframe
+? L'utilisateur a simplement devant lui écran / clavier / souris pour interagir
+à distance avec l'application s'exécutant entièrement sur le serveur
+? Soit découpés entre la partie serveur et la partie client
+
+6
+Architecture 2 – tiers
+? Architecture 2 – tiers
+? Client / serveur de base, avec 2 éléments
+? Client : présentation, interface utilisateur
+? Serveur : partie persistance, gestion physique des données
+? Les services métier / la partie applicative peuvent être
+? Soit entièrement coté client, intégrés avec la présentation
+? La partie serveur ne gère que les données
+? Ex : traitement de texte avec serveur de fichiers distants
+? Ex : application accèdant à une BDD distante
+? Soit entièrement coté serveur
+? La partie client ne gére que l'interface utilisateur
+? L'interface utilisateur peut même être exécutée sur le serveur
+? Fonctionnement mode terminal / mainframe

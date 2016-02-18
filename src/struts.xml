@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<package name="default" extends="json-default" namespace="/" >
+	<!--le systeme separe '*' a 'etablissement' et la valeur de l'etoile il le remplace dans le nom de methode, par example si l'action est 'listEtablissement',le nom de la methode sera 'list' et c pareil pour create et update et delete -->
+	<action name="*Etablissment" class="com.simplecodestuffs.action.ActionEtablissement" method="{1}">
+		<result type="json">/structure/Etablissement.jsp</result>
+	</action>
+
+</package>
+</struts>
