@@ -10,6 +10,7 @@
 		<property name="show_sql">true</property>  
 		<property name="password" />
 		<mapping class="structure.Etablissement" resource="config/Etablissement.hbm.xml" />
+		<mapping class="structure.Personne" resource="config/Personne.hbm.xml" />
 		
 	</session-factory>
 </hibernate-configuration>

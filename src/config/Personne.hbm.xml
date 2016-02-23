@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22 f?vr. 2016 20:37:00 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="structure.Personne" table="personne" catalog="etab">
+		<id name="idPersonne" type="java.lang.Integer">
+			<column name="id_personne" />
+			<generator class="increment" />
+		</id>
+		<property name="nom" type="string">
+			<column name="nom" length="200" not-null="true" />
+		</property>
+		<property name="prenom" type="string">
+			<column name="prenom" not-null="true" length="200" />
+		</property>
+
+		<property name="login" type="string">
+			<column name="login" not-null="true" length="200" />
+		</property>
+
+		<property name="password" type="string">
+			<column name="password" not-null="true" length="200" />
+		</property>
+
+		<!-- <property name="idEtablissement" type="int"> -->
+		<!-- <column name="id_etablissement" not-null="true" /> -->
+		<!-- </property> -->
+	</class>
+</hibernate-mapping>

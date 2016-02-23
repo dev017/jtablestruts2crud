@@ -3,7 +3,7 @@
 "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-		<class name="structure.Etablissement" table="Etablissement1" >
+		<class name="structure.Etablissement" table="Etablissement" >
 		<id name="id_etablissement" type="int" column="id_etablissement">
 			<generator class="increment" />
 		</id>

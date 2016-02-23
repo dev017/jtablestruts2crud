@@ -31,7 +31,6 @@ public class EtablissementDao {
 							public void AjouterEtablissement(Etablissement Etablissement) {
 								Session session = null;
 								
-								System.out.println("sssssss " + Etablissement.getNom());
 								 try{
 									 session = HibernateConfig.getSession();
 									 

@@ -9,48 +9,47 @@ import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
 
 import com.dao.BaseDAO;
-import com.dao.EtablissementDao;
+import com.dao.PersonneDao;
 import com.opensymphony.xwork2.ActionSupport;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.action.CollectionAction;
 
-import structure.Etablissement;
+import structure.Personne;
 
 import java.io.IOException;
 
-public class ActionEtablissement extends ActionSupport {
+public class ActionPersonne extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
-	private int id_etablissement;
-	private String nom, tel, fax, adresse, raison_social;
+	private int id_Personne;
+	private String nom, tel, fax, prenom, raison_social;
 
-	private EtablissementDao dao = new EtablissementDao();
+	private PersonneDao dao = new PersonneDao();
 
-	private List<Etablissement> records = new ArrayList<Etablissement>();
+	private List<Personne> records = new ArrayList<Personne>();
 	private String result;
 	private String message;
-	private Etablissement record = new Etablissement();
+	private Personne record = new Personne();
 
 	private int jtStartIndex;
 	private int jtPageSize;
 	private int totalRecordCount;
 
-	Collection<Etablissement> etablissementList = new ArrayList<Etablissement>();
+	Collection<Personne> PersonneList = new ArrayList<Personne>();
 
 	public String list() {
 		try {
 			int range = jtStartIndex + jtPageSize;
 			String query = "";
 
-			query = "from Etablissement where id_etablissement > "
-					+ jtStartIndex + " and id_etablissement <= " + range;
+			query = "from Personne where id_personne > " + jtStartIndex
+					+ " and id_personne <= " + range;
 			// setRecords((ArrayList<action>) getDao().getListeAction());
 			System.out.println("query=" + query);
-			setRecords((ArrayList<Etablissement>) getDao()
-					.getListeEtablissement(query));
-			totalRecordCount = EtablissementDao.getEtablissementCount();
+			setRecords((ArrayList<Personne>) getDao().getListePersonne(query));
+			totalRecordCount = PersonneDao.getPersonneCount();
 			setResult("OK");
 		} catch (Exception e) {
 			setResult("ERROR");
@@ -62,15 +61,13 @@ public class ActionEtablissement extends ActionSupport {
 
 	public String create() throws IOException {
 
-		record = new Etablissement();
-		record.setId_etablissement(id_etablissement);
-		record.setAdresse(adresse);
-		record.setFax(fax);
+		record = new Personne();
+		record.setIdPersonne(id_Personne);
 		record.setNom(nom);
-		record.setRaison_social(raison_social);
-		record.setTel(tel);
+		record.setPrenom(prenom);
+		record.setNom(nom);
 		try {
-			getDao().AjouterEtablissement(record);
+			getDao().AjouterPersonne(record);
 			setResult("OK");
 		} catch (Exception e) {
 			setResult("ERROR");
@@ -84,15 +81,13 @@ public class ActionEtablissement extends ActionSupport {
 	public String update() throws IOException {
 		try {
 
-			record = new Etablissement();
-			record.setId_etablissement(id_etablissement);
-			record.setAdresse(adresse);
-			record.setFax(fax);
+			record = new Personne();
+			record.setIdPersonne(id_Personne);
 			record.setNom(nom);
-			record.setRaison_social(raison_social);
-			record.setTel(tel);
+			record.setPrenom(prenom);
+			record.setNom(nom);
 
-			getDao().updateEtablissement(id_etablissement, record);
+			getDao().updatePersonne(id_Personne, record);
 			setResult("OK");
 		} catch (Exception e) {
 			setResult("ERROR");
@@ -105,7 +100,7 @@ public class ActionEtablissement extends ActionSupport {
 	public String delete() throws IOException {
 		try {
 
-			getDao().deleteEtablissement(id_etablissement);
+			getDao().deletePersonne(id_Personne);
 			setResult("OK");
 		} catch (Exception e) {
 			setResult("ERROR");
@@ -116,12 +111,12 @@ public class ActionEtablissement extends ActionSupport {
 
 	}
 
-	public int getId_etablissement() {
-		return id_etablissement;
+	public int getId_Personne() {
+		return id_Personne;
 	}
 
-	public void setId_etablissement(int id_etablissement) {
-		this.id_etablissement = id_etablissement;
+	public void setId_Personne(int id_Personne) {
+		this.id_Personne = id_Personne;
 	}
 
 	public String getNom() {
@@ -148,14 +143,6 @@ public class ActionEtablissement extends ActionSupport {
 		this.fax = fax;
 	}
 
-	public String getAdresse() {
-		return adresse;
-	}
-
-	public void setAdresse(String adresse) {
-		this.adresse = adresse;
-	}
-
 	public String getRaison_social() {
 		return raison_social;
 	}
@@ -164,19 +151,19 @@ public class ActionEtablissement extends ActionSupport {
 		this.raison_social = raison_social;
 	}
 
-	public EtablissementDao getDao() {
+	public PersonneDao getDao() {
 		return dao;
 	}
 
-	public void setDao(EtablissementDao dao) {
+	public void setDao(PersonneDao dao) {
 		this.dao = dao;
 	}
 
-	public List<Etablissement> getRecords() {
+	public List<Personne> getRecords() {
 		return records;
 	}
 
-	public void setRecords(List<Etablissement> records) {
+	public void setRecords(List<Personne> records) {
 		this.records = records;
 	}
 
@@ -196,11 +183,11 @@ public class ActionEtablissement extends ActionSupport {
 		this.message = message;
 	}
 
-	public Etablissement getRecord() {
+	public Personne getRecord() {
 		return record;
 	}
 
-	public void setRecord(Etablissement record) {
+	public void setRecord(Personne record) {
 		this.record = record;
 	}
 
@@ -232,24 +219,23 @@ public class ActionEtablissement extends ActionSupport {
 		return serialVersionUID;
 	}
 
-	public ActionEtablissement() {
+	public ActionPersonne() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	// list all customers
-	public String listEtablissement() throws Exception {
-		etablissementList = getDao()
-				.getListeEtablissement("from Etablissement");
+	public String listPersonne() throws Exception {
+		PersonneList = getDao().getListePersonne("from Personne");
 		return SUCCESS;
 
 	}
 
-	public Collection<Etablissement> getEtablissementList() {
-		return etablissementList;
+	public Collection<Personne> getPersonneList() {
+		return PersonneList;
 	}
 
-	public void setEtablissementList(Collection<Etablissement> etablissementList) {
-		this.etablissementList = etablissementList;
+	public void setPersonneList(Collection<Personne> PersonneList) {
+		this.PersonneList = PersonneList;
 	}
 }
